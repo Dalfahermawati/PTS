@@ -10,7 +10,42 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="m-3">
+  <h1>Form Pembeli</h1>
+  
+  <form class="mb-3">
+    <div class="mb-3">
+      <label class="form-label">Nama Pembeli</label>
+      <input type="text" class="form-control" id="input-nama">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Harga</label>
+      <input type="text" class="form-control" id="input-harga">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Stok</label>
+      <input type="text" class="form-control" id="input-stok">
+    </div>
+    <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
+  </form>
+
+  <a href="index.html">Lihat Daftar Pembeli</a>
+  
+  <script type="module">
+    import { tambahPembeli } from './main.js';
+    
+    let tombolTambah = document.getElementById('tombol-tambah');
+    let elemenNamaPembeli = document.getElementById('input-nama');
+    let elemenHarga = document.getElementById('input-harga');
+    let elemenStok = document.getElementById('input-stok');
+    
+    tombolTambah.addEventListener('click', async function (e) {
+      e.preventDefault();
+      await tambahPembeli(elemenNamaPembeli.value, elemenHarga.value, elemenStok.value);
+      window.location.href = 'index.html';
+    });
+  </script>
+  
 
 </body>
 
